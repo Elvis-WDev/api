@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "productos",
+  "info": {
+    "singularName": "producto",
+    "pluralName": "productos",
+    "displayName": "Productos",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {},
+      "required": true
+    },
+    "descripcion": {
+      "type": "text",
+      "pluginOptions": {},
+      "required": true
+    },
+    "url_image": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "actual_price": {
+      "type": "decimal",
+      "pluginOptions": {},
+      "required": true
+    },
+    "antes_price": {
+      "type": "decimal",
+      "pluginOptions": {},
+      "required": true
+    },
+    "cantidad": {
+      "type": "integer",
+      "pluginOptions": {},
+      "required": true
+    },
+    "categorias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::categoria.categoria",
+      "inversedBy": "productos"
+    },
+    "tallas": {
+      "type": "customField",
+      "options": [
+        "XS",
+        "L",
+        "M",
+        "S",
+        "XL"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "colores": {
+      "type": "customField",
+      "options": [
+        "Blanco",
+        "Negro",
+        "Beige",
+        "Plomo",
+        "Lila"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "isNew": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
